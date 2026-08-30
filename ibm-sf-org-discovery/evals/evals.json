@@ -1,0 +1,62 @@
+{
+  "skill_name": "ibm-sf-org-discovery",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We're starting an org health review for a new client. They're on Enterprise Edition with 500 licences. About 400 are assigned. They have Sales Cloud and Service Cloud. No add-ons beyond that.",
+      "expected_output": "Skill conducts Domain 1 discovery, identifies dormant licence risk, probes API limits and renewal date, provides domain summary with RAG status, and logs findings before moving to Domain 2.",
+      "files": [],
+      "expectations": [
+        "Asks about actively utilised licences versus merely assigned licences (last login distribution)",
+        "Asks about or flags the 100 unassigned licences as a potential cost risk",
+        "Asks about API call limit consumption for the edition",
+        "Assigns a RAG status to Domain 1 before proceeding",
+        "Logs at least one finding to the findings register",
+        "Asks whether a licence reclamation process exists"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Our overall test coverage is 78% but we have three triggers with zero test coverage that are running in production. We also have about 15 Apex classes below 40% coverage.",
+      "expected_output": "Skill classifies zero-coverage triggers as Critical, probes error handling and deployment controls, logs multiple findings, assigns Red to Domain 7, and does not proceed to the next domain without clearly surfacing the severity.",
+      "files": [],
+      "expectations": [
+        "Classifies zero-coverage production triggers as Critical severity",
+        "Assigns Red RAG status to Domain 7",
+        "Asks whether those triggers have try-catch error handling",
+        "Asks about the deployment methodology and whether test failures block production releases",
+        "Logs at least two separate findings — one for zero-coverage triggers, one for classes below 40%",
+        "Does not move to next domain without summarising the risk clearly"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We don't really have a formal disaster recovery plan for Salesforce. We rely on Salesforce's own backups. Our entire order management process runs through Salesforce — if it goes down, we can't process orders.",
+      "expected_output": "Skill identifies absence of DR plan and undefined RTO/RPO as Critical, logs a Data Gap for untested recovery, asks about alternative processes and backup solutions, assigns Red to Domain 12.",
+      "files": [],
+      "expectations": [
+        "Identifies absence of documented DR plan as Critical",
+        "Asks about RTO and RPO — and logs a Data Gap if client cannot define them",
+        "Asks about third-party backup tools beyond native Salesforce weekly export",
+        "Asks whether alternative processes exist for order management during an outage",
+        "Assigns Red RAG status to Domain 12",
+        "Logs at least one Data Gap entry for undefined RTO/RPO"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "I'm ready to start the full org health review. The client is an NHS Trust on Enterprise Edition with 600 users. They store patient NHS numbers, appointment data, and referral information in Salesforce. They're based entirely in England.",
+      "expected_output": "Skill begins with Domain 1, recognises NHS / UK GDPR / DSP Toolkit context, pre-flags Domain 11 (Compliance) as high priority, works through all 13 domains sequentially, and produces a complete Org Health Summary Report.",
+      "files": [],
+      "expectations": [
+        "Begins discovery with Domain 1 — Licensing & Edition",
+        "Recognises NHS context and flags UK GDPR, NHS DSP Toolkit, and data sensitivity",
+        "Notes that NHS numbers constitute sensitive PII requiring encryption — flags for Domain 11",
+        "Works through all 13 domains in order without skipping",
+        "Assigns RAG status to each domain",
+        "Produces a final Org Health Summary Report using the report template structure",
+        "Includes at least one Innovation & AI Opportunity relevant to NHS use cases"
+      ]
+    }
+  ]
+}
