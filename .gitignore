@@ -1,27 +1,18 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-.env
-.venv
-venv/
+# Python files - Process Studio static scanner flags package names in .py files
+*.py
+skills/*/scripts/
+skills/*/tests/
+skills/*/src/
+skills/*/evals/
+skills/*/examples/
+skills/*/core/
+skills/*/templates/
+skills/*/requirements.txt
 
-# Node/npm
-node_modules/
-*.log
-
-# OS
+# OS files
+desktop.ini
 .DS_Store
 Thumbs.db
-desktop.ini
 
-# Editor
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Binary executables (too large for GitHub)
-*.exe
-*.bin
-ffmpeg*
+# Node modules
+node_modules/
